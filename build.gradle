@@ -19,6 +19,10 @@ project.apply from: './gradle/tagging.gradle'
 project.apply from: './dependencies.gradle'
 
 allprojects {
+    tasks.withType(JavaCompile).configureEach {
+        options.incremental = true
+    }
+
     apply from: "${rootProject.projectDir.absolutePath}/gradle/tagging.gradle"
 
     repositories {
